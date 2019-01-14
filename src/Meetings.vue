@@ -29,6 +29,7 @@
   import ParticipantsList from "./ParticipantsList.vue";
   import NewParticipantForm from "./NewParticipantForm.vue";
 
+
   export default {
     components: {ParticipantsList, NewParticipantForm},
     data() {
@@ -40,6 +41,11 @@
       addNewParticipant(participant) {
         this.people.push(participant);
       }
-    }
+    },
+      mounted() {
+          this.$http.get('participants').then(response => {
+              this.people = response.body;
+          });
+      }
   };
 </script>
