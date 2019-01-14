@@ -11,7 +11,7 @@ $app->get(
         $name = $args['name'];
         $response->getBody()->write("Hello, $name");
         return $response;
-    }
+    });
 
     $app->get(
         '/api/participants',
@@ -23,7 +23,7 @@ $app->get(
             ];
             return $response->withJson($participants);
         }
-    );
+
 
 );
 $app->run();
